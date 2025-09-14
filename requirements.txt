@@ -1,0 +1,12 @@
+faster-whisper
+transformers
+sentence-transformers
+chromadb
+langchain
+gradio
+streamlit
+torchaudio
+librosa
+python-dotenv
+openai
+PyYAML

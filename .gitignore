@@ -1,0 +1,52 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+
+# Data artifacts (keep folders via .gitkeep)
+data/audio/*
+!data/audio/.gitkeep
+data/transcripts_raw/*
+!data/transcripts_raw/.gitkeep
+data/transcripts_normalized/*
+!data/transcripts_normalized/.gitkeep
+data/chunks/*
+!data/chunks/.gitkeep
+data/chroma_db/**
+!data/chroma_db/.gitkeep
+
+# Local configs / cache
+.cache/
+.local/
+node_modules/

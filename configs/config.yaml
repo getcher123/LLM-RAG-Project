@@ -1,0 +1,22 @@
+paths:
+  audio_dir: data/audio
+  transcripts_raw: data/transcripts_raw
+  transcripts_normalized: data/transcripts_normalized
+  chunks: data/chunks
+  chroma_db: data/chroma_db
+
+rag:
+  top_k: 8
+  chunk_size_words: 250
+  chunk_overlap_sentences: 2
+  collection: entertainment
+
+models:
+  asr: whisper-medium
+  normalizer: mistral-7b-instruct
+  embeddings: intfloat/multilingual-e5-large-instruct
+  generator: gpt-4o
+
+generator:
+  temperature: 0.3
+  max_tokens: 512
