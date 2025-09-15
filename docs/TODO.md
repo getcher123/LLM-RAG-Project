@@ -4,7 +4,7 @@ Curr status
 
 - Scope: End-to-end RAG pipeline with audio transcription, chunking, embeddings, retrieval, and simple UI. Tooling via `uv`, `ruff`, `pytest`.
 - Risks: External model dependencies, local audio availability, vectorstore persistence.
-- Next milestone: Transcriber submodule and tests, tooling integration.
+- Next milestone: Wire real faster-whisper + integrate audio saver in pipelines.
 
 Backlog
 
@@ -15,12 +15,12 @@ Backlog
 
 Next
 
-- Scaffold `src/transcriber` based on `notebooks/pipeline_demo.ipynb`.
-- Add tests for `transcriber` with optional external mp3 path.
+- Integrate `src/audio/downloader.py` with CLI for batch saves by URL list.
+- Add API auth/CORS and rate limiting.
 
 In progress
 
-- Documentation and developer workflow setup (this change).
+- Evaluate switching transcriber placeholder to faster-whisper.
 
 To review
 
@@ -28,5 +28,9 @@ To review
 
 Done
 
-- Repo structure: `src/`, `tests/`, `notebooks/`, `data/`, `configs/`.
+Done
 
+- Repo structure: `src/`, `tests/`, `notebooks/`, `data/`, `configs/`.
+- Transcriber submodule and tests.
+- FastAPI transcriber API.
+- Audio saver API and downloader utility with tests.

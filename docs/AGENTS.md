@@ -30,6 +30,23 @@ This document describes how AI agents are used in this project: their roles, pro
    - Normalize and chunk: `python -m src.normalize` (if present) and `python -m src.ingest`
 5. Notebooks: open `notebooks/pipeline_demo.ipynb` for an end-to-end demo.
 
+## Transcriber API (FastAPI)
+- Start server: `python -m src.transcriber.api.run` (defaults to `0.0.0.0:8000`).
+- Health: `GET /health` → `{ "status": "ok" }`.
+- Upload transcription: `POST /transcribe` (multipart form)
+  - Fields: `file` (audio), optional: `language`, `segment_sec`, `use_vad`, `beam`, `timestamps`, `out_dir`.
+- Local path transcription: `POST /transcribe/path`
+  - Query/body: `file_path` (absolute/relative path), optional: same params as above.
+- Both endpoints return `{ payload, jsonl_path }`, where `jsonl_path` is set if `out_dir` is provided.
+
+## Audio Saver API (FastAPI)
+- Start server: `python -m src.audio.api.run` (defaults to `0.0.0.0:8001`).
+- Health: `GET /health` → `{ "status": "ok" }`.
+- Save MP3 by URL: `POST /audio/save` with JSON body
+  - `{ "url": "https://…", "out_dir": "data/audio", "filename": "optional_name" }`
+  - Uses `yt-dlp` + FFmpeg to extract audio to MP3.
+  - Returns `{ "path": "data/audio/<name>.mp3" }`.
+
 ## Claude Notes
 - This guide also serves as `CLAUDE.md` for teams using Claude-like agents.
 - Provide structured tasks with clear input/output artifacts (files, tests) and limit scope per step.
@@ -42,4 +59,3 @@ This document describes how AI agents are used in this project: their roles, pro
 ## Prompt Logs and TODOs
 - Logs: `docs/PROMPTS-LOG.md` (append entries per prompt/session).
 - Roadmap and status: `docs/TODO.md` (Backlog/Next/In progress/To review/Done).
-
