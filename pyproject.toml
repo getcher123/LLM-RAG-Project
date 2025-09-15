@@ -26,6 +26,8 @@ dependencies = [
   "uvicorn[standard]>=0.23.0",
   "python-multipart>=0.0.9",
   "yt-dlp>=2024.5.27",
+  "httpx>=0.27.0",
+  "python-telegram-bot>=21.4",
 ]
 
 [project.optional-dependencies]
@@ -61,3 +63,8 @@ testpaths = ["tests"]
 [tool.coverage.run]
 branch = true
 source = ["src"]
+
+[tool.llm_rag_project]
+# Local API endpoints for bot services
+transcriber_api_base = "http://127.0.0.1:8000"
+audio_api_base = "http://127.0.0.1:8001"

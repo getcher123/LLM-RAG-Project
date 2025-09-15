@@ -47,6 +47,22 @@ This document describes how AI agents are used in this project: their roles, pro
   - Uses `yt-dlp` + FFmpeg to extract audio to MP3.
   - Returns `{ "path": "data/audio/<name>.mp3" }`.
 
+## Telegram Bot
+- Location: `src/bot/telegram_bot.py`
+- Scenario:
+  - Ask user for a YouTube link
+  - Ask what to do: Send MP3, Transcribe only, or Both
+  - Use Audio Saver API to download MP3; use Transcriber API to transcribe
+- Run:
+  - Export `TELEGRAM_BOT_TOKEN`, ensure APIs are running on 8000/8001, then `make bot`.
+- Config via env:
+  - `AUDIO_API_BASE` (default `http://127.0.0.1:8001`)
+  - `TRANSCRIBER_API_BASE` (default `http://127.0.0.1:8000`)
+
+## Makefile and Justfile
+- Makefile targets: `venv`, `install`, `lint`, `test`, `api-transcriber`, `api-audio`, `bot`.
+- Justfile: same tasks plus diagnostics (`versions`).
+
 ## Claude Notes
 - This guide also serves as `CLAUDE.md` for teams using Claude-like agents.
 - Provide structured tasks with clear input/output artifacts (files, tests) and limit scope per step.

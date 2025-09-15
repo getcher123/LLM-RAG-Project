@@ -35,7 +35,7 @@ def test_save_mp3_from_url_with_filename(tmp_path, monkeypatch):
     module_stub = SimpleNamespace(YoutubeDL=_StubYDL)
     monkeypatch.setitem(sys.modules, "yt_dlp", module_stub)
 
-    out = save_mp3_from_url("https://example.com/media", out_dir=tmp_path, filename="clip")
+    out = save_mp3_from_url("https://www.youtube.com/shorts/pNOrDC8NyEo", out_dir=tmp_path, filename="clip")
     assert out == tmp_path / "clip.mp3"
     assert out.exists()
 
@@ -44,8 +44,7 @@ def test_save_mp3_from_url_autoname(tmp_path, monkeypatch):
     module_stub = SimpleNamespace(YoutubeDL=_StubYDL)
     monkeypatch.setitem(sys.modules, "yt_dlp", module_stub)
 
-    out = save_mp3_from_url("https://example.com/media", out_dir=tmp_path)
+    out = save_mp3_from_url("https://www.youtube.com/shorts/pNOrDC8NyEo", out_dir=tmp_path)
     # Autoname path is most recent .mp3 created by stub
     assert out.suffix == ".mp3"
     assert out.exists()
-

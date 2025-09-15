@@ -4,7 +4,7 @@ Curr status
 
 - Scope: End-to-end RAG pipeline with audio transcription, chunking, embeddings, retrieval, and simple UI. Tooling via `uv`, `ruff`, `pytest`.
 - Risks: External model dependencies, local audio availability, vectorstore persistence.
-- Next milestone: Wire real faster-whisper + integrate audio saver in pipelines.
+- Next milestone: Wire real faster-whisper + integrate audio saver in pipelines; deploy Telegram bot.
 
 Backlog
 
@@ -17,10 +17,12 @@ Next
 
 - Integrate `src/audio/downloader.py` with CLI for batch saves by URL list.
 - Add API auth/CORS and rate limiting.
+- Dockerize APIs and bot.
 
 In progress
 
 - Evaluate switching transcriber placeholder to faster-whisper.
+- Bot UX improvements (error messages, progress updates).
 
 To review
 
@@ -34,3 +36,5 @@ Done
 - Transcriber submodule and tests.
 - FastAPI transcriber API.
 - Audio saver API and downloader utility with tests.
+- Telegram bot scaffolding integrated with APIs.
+- Makefile and Justfile for setup and runs.
