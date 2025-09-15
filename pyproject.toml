@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llm-rag-project"
+version = "0.1.0"
+description = "RAG + transcription demo project"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Project Contributors" }]
+dependencies = [
+  "faster-whisper",
+  "transformers",
+  "sentence-transformers",
+  "chromadb",
+  "langchain",
+  "gradio",
+  "streamlit",
+  "torchaudio",
+  "librosa",
+  "python-dotenv",
+  "openai",
+  "PyYAML",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "ruff>=0.5.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = [
+  ".git",
+  ".venv",
+  "build",
+  "dist",
+  "notebooks",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = [
+  "E203", # whitespace before ':' (conflicts with Black-style slicing)
+  "E501", # line length (covered by formatter or manual review)
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra --cov=src --cov-report=term-missing"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
