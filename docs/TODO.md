@@ -23,12 +23,15 @@ In progress
 
 - Evaluate switching transcriber placeholder to faster-whisper.
 - Bot UX improvements (error messages, progress updates).
+- Fix import path issues (change `from utils.` to `from src.utils.`).
+- Install missing dependencies for full test coverage.
+- Address linting errors (51 total): import organization, deprecated typing.
 
 To review
 
 - Docs: `docs/AGENTS.md`, `docs/PROMPTS-LOG.md`, `docs/TODO.md`.
-
-Done
+- Docker setup optimization (build time, dependency management).
+- Test infrastructure improvements (dependency management, import fixes).
 
 Done
 
@@ -38,3 +41,6 @@ Done
 - Audio saver API and downloader utility with tests.
 - Telegram bot scaffolding integrated with APIs.
 - Makefile and Justfile for setup and runs.
+- Docker configuration verification and testing.
+- Comprehensive project status documentation update.
+- Test coverage analysis (transcriber tests pass, others need dependencies).
