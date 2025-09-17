@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  transcriber-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./configs:/app/configs
+    environment:
+      - PYTHONPATH=/app
+    command: python -m src.transcriber.api.run
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  audio-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./data:/app/data
+      - ./configs:/app/configs
+    environment:
+      - PYTHONPATH=/app
+    command: python -m src.audio.api.run
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  telegram-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PYTHONPATH=/app
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - AUDIO_API_BASE=http://audio-api:8001
+      - TRANSCRIBER_API_BASE=http://transcriber-api:8000
+    volumes:
+      - ./data:/app/data
+      - ./configs:/app/configs
+    command: python -m src.bot.telegram_bot
+    depends_on:
+      - transcriber-api
+      - audio-api
+    restart: unless-stopped
+
+volumes:
+  data:
+  chroma_db:

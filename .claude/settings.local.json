@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv venv:*)",
+      "Bash(source:*)",
+      "Bash(uv pip install:*)",
+      "Bash(pip install:*)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(python -m pytest tests/ -v --tb=short)",
+      "Bash(ls:*)",
+      "Bash(rm:*)",
+      "Bash(python3.11:*)",
+      "Bash(python3.10:*)",
+      "Bash(PYTHONPATH=. python -m pytest tests/ -v --tb=short)",
+      "Bash(PYTHONPATH=. python -m pytest tests/test_asr.py -v)",
+      "Bash(PYTHONPATH=. python -m pytest tests/test_asr.py tests/test_ingest.py tests/test_retrieval.py -v)",
+      "Bash(PYTHONPATH=. python -m pytest tests/test_transcriber.py -v)",
+      "Bash(ruff check:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
