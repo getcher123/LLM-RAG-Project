@@ -18,7 +18,12 @@
       "Bash(PYTHONPATH=. python -m pytest tests/test_transcriber.py -v)",
       "Bash(ruff check:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(make:*)",
+      "Bash(just:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

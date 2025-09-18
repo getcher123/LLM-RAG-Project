@@ -38,3 +38,5 @@ docker-down:
 docker-logs:
 	docker-compose logs -f
 
+up:
+	make docker-build && make docker-up

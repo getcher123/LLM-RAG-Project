@@ -29,6 +29,11 @@ This document describes how AI agents are used in this project: their roles, pro
    - Transcribe audio: `python -m src.asr_batch --input_dir data/audio --output data/transcripts_raw`
    - Normalize and chunk: `python -m src.normalize` (if present) and `python -m src.ingest`
 5. Notebooks: open `notebooks/pipeline_demo.ipynb` for an end-to-end demo.
+6. Docker (alternative): 
+   - Build: `make docker-build` or `just docker-build`
+   - Run: `make docker-up` or `just docker-up` 
+   - View logs: `make docker-logs` or `just docker-logs`
+   - Stop: `make docker-down` or `just docker-down`
 
 ## Transcriber API (FastAPI)
 - Start server: `python -m src.transcriber.api.run` (defaults to `0.0.0.0:8000`).
@@ -60,8 +65,9 @@ This document describes how AI agents are used in this project: their roles, pro
   - `TRANSCRIBER_API_BASE` (default `http://127.0.0.1:8000`)
 
 ## Makefile and Justfile
-- Makefile targets: `venv`, `install`, `lint`, `test`, `api-transcriber`, `api-audio`, `bot`.
-- Justfile: same tasks plus diagnostics (`versions`).
+- Development targets: `venv`, `install`, `lint`, `test`, `api-transcriber`, `api-audio`, `bot`.
+- Docker targets: `docker-build`, `docker-up`, `docker-down`, `docker-logs` (Justfile also has `docker-restart`).
+- Justfile extras: diagnostics (`versions`), better recipe organization with comments.
 
 ## Claude Notes
 - This guide also serves as `CLAUDE.md` for teams using Claude-like agents.

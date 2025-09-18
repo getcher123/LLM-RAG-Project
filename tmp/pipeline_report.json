@@ -1,0 +1,11 @@
+{
+  "pipeline_completed": true,
+  "audio_file": "tmp/audio/В месяц ты зарабатываешь больше 1млн рублей？ Звезда ＂Реутов ТВ＂ у Дудя.mp3",
+  "transcript_file": "tmp/transcripts_raw/В месяц ты зарабатываешь больше 1млн рублей？ Звезда ＂Реутов ТВ＂ у Дудя.jsonl",
+  "normalized_file": "tmp/transcripts_normalized/В месяц ты зарабатываешь больше 1млн рублей？ Звезда ＂Реутов ТВ＂ у Дудя.jsonl",
+  "chunks_file": "tmp/chunks/chunks.jsonl",
+  "num_segments": 5,
+  "num_chunks": 1,
+  "full_text_length": 250,
+  "normalized_text_length": 250
+}

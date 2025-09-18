@@ -29,7 +29,9 @@ From TODO.md "In progress" section:
 - ✅ Dockerfile and docker-compose.yml are well-structured
 - ✅ Services defined: transcriber-api (8000), audio-api (8001), telegram-bot
 - ✅ Proper volume mounts and health checks configured
-- ⚠️  Docker build works but is slow due to heavy dependencies (ffmpeg, Python ML libs)
+- ✅ Make/Justfile Docker commands work: `make docker-build`, `make docker-up`, `make docker-logs`, `make docker-down`
+- ⚠️  Docker build works but is very slow (~10+ min) due to heavy ML dependencies (PyTorch 846MB, CUDA libs 1.5GB+, etc.)
+- ⚠️  Build timeouts on slower systems, may need optimization for production use
 
 ### Test Results:
 - ✅ Transcriber tests pass (2/2): external MP3 handling and unsupported extensions
